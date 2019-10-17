@@ -15,6 +15,7 @@ export default class ButtonBack extends React.Component {
     totalSlides: PropTypes.number.isRequired,
     visibleSlides: PropTypes.number.isRequired,
     infinite: PropTypes.bool,
+    buttonBackRef: PropTypes.func.isRequired,
   };
 
   static defaultProps = {

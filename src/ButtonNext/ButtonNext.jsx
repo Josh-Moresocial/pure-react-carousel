@@ -15,6 +15,7 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
     totalSlides: PropTypes.number.isRequired,
     visibleSlides: PropTypes.number.isRequired,
     infinite: PropTypes.bool,
+    buttonNextRef: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
