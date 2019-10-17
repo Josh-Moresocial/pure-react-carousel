@@ -33,6 +33,7 @@ export default class ButtonBack extends React.Component {
   constructor(props) {
     super(props);
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.buttonBackRef = React.createRef()
   }
 
   handleOnClick(ev) {
@@ -83,6 +84,7 @@ export default class ButtonBack extends React.Component {
 
     return (
       <button
+        ref={input => (this.buttonBackRef = input)}
         type="button"
         aria-label="previous"
         className={newClassName}
