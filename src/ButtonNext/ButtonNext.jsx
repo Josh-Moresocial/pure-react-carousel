@@ -15,7 +15,6 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
     totalSlides: PropTypes.number.isRequired,
     visibleSlides: PropTypes.number.isRequired,
     infinite: PropTypes.bool,
-    buttonNextRef: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -34,6 +33,8 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
   constructor(props) {
     super(props);
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.buttonNextRef = React.createRef();
+    window.buttonNext = this;
   }
 
   handleOnClick(ev) {
@@ -73,7 +74,6 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
       totalSlides,
       visibleSlides,
       infinite,
-      buttonNextRef,
       ...props
     } = this.props;
 
@@ -88,7 +88,7 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
 
     return (
       <button
-        ref={input => buttonNextRef(input)}
+        ref={input => (this.buttonNextRef = input)}
         type="button"
         aria-label="next"
         className={newClassName}

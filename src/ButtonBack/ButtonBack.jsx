@@ -15,7 +15,6 @@ export default class ButtonBack extends React.Component {
     totalSlides: PropTypes.number.isRequired,
     visibleSlides: PropTypes.number.isRequired,
     infinite: PropTypes.bool,
-    buttonBackRef: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -34,6 +33,8 @@ export default class ButtonBack extends React.Component {
   constructor(props) {
     super(props);
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.buttonBackRef = React.createRef();
+    window.buttonBack = this;
   }
 
   handleOnClick(ev) {
@@ -72,7 +73,6 @@ export default class ButtonBack extends React.Component {
       totalSlides,
       visibleSlides,
       infinite,
-      buttonBackRef,
       ...props
     } = this.props;
 
@@ -85,7 +85,7 @@ export default class ButtonBack extends React.Component {
 
     return (
       <button
-        ref={input => buttonBackRef(input)}
+        ref={input => (this.buttonBackRef = input)}
         type="button"
         aria-label="previous"
         className={newClassName}
