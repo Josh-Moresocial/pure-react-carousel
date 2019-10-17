@@ -33,7 +33,6 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
   constructor(props) {
     super(props);
     this.handleOnClick = this.handleOnClick.bind(this);
-    this.buttonNextRef = React.createRef()
   }
 
   handleOnClick(ev) {
@@ -73,6 +72,7 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
       totalSlides,
       visibleSlides,
       infinite,
+      buttonNextRef,
       ...props
     } = this.props;
 
@@ -87,7 +87,7 @@ const ButtonNext = class ButtonNext extends React.PureComponent {
 
     return (
       <button
-        ref={input => (this.buttonNextRef = input)}
+        ref={input => buttonNextRef(input)}
         type="button"
         aria-label="next"
         className={newClassName}

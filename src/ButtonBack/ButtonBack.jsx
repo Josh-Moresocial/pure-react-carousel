@@ -33,7 +33,6 @@ export default class ButtonBack extends React.Component {
   constructor(props) {
     super(props);
     this.handleOnClick = this.handleOnClick.bind(this);
-    this.buttonBackRef = React.createRef()
   }
 
   handleOnClick(ev) {
@@ -72,6 +71,7 @@ export default class ButtonBack extends React.Component {
       totalSlides,
       visibleSlides,
       infinite,
+      buttonBackRef,
       ...props
     } = this.props;
 
@@ -84,7 +84,7 @@ export default class ButtonBack extends React.Component {
 
     return (
       <button
-        ref={input => (this.buttonBackRef = input)}
+        ref={input => buttonBackRef(input)}
         type="button"
         aria-label="previous"
         className={newClassName}
